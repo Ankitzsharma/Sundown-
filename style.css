@@ -1,0 +1,352 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Gilroy;
+}
+html,body{
+    height:100%;
+    width:100%;
+
+}
+#page1{
+    min-height: 100vh;  
+    width:100%;
+    
+    background-color:#EFEAE3;
+    position:reltive;     /*   isse Childrens Control Me Rhenge*/
+    padding: 2vw;
+}
+nav{
+    /*height:100%;*/
+    padding:1vw 0vw;
+    width:100%;
+    
+    Display:flex;                      /* Element Ek hi Line Me aa Jaenge*/
+    align-items: center;               /*  Y-Axis ko centre */
+    justify-content:space-between;     /* Dur-Dur Jake Beth Jaenge */
+
+}
+#nav-part2{
+    display:flex;
+    align-items:center;
+    gap: 1vw;
+}
+#nav-part2 h4{                      /* parent*/
+    padding: 10px 20px;
+    border: 1px solid rgba(135, 133, 133, 0.749);
+    border-radius:50px;
+    font-weight:500;                  /*  Font ki Boldness Ko Reduce kr Dega*/
+    color:rgba(10, 10, 10, 0.952);
+    transition: all ease 0.4s; 
+    position: relative;              /* black coating/animation Doesn't Flow Over whole part*/ 
+    overflow: hidden;                /* black coating ke overflow ko hide krega. that's why black coating only BOX me flow Hogi...*/
+    font-size: 18px;
+}   
+#nav-part2 h4::after{               /* child*/  /* after/before Are The Pseudo Elements. Which Basically Add The Words/Color before/after the word */
+   content: "";
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   background-color: black;
+   left: 0;
+   bottom:-100%;
+   border-radius: 50%;
+   transition: all ease 0.4s;
+}
+#nav-part2 h4:hover::after{
+    bottom: 0;
+    border-radius: 0%;
+
+}
+#nav-part2 h4 a{
+    color: black;
+    text-decoration: none;
+    position: relative;
+    z-index: 9;
+}
+#nav-part2 h4:hover a{              /*nav-part2 ke h4 pr hover krte time <Anchor tag> ko Acsess kre*/
+    color: white;
+
+}
+#center{
+    height: 65vh;
+    width: 100%;
+    /*background: orange;  */
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.708);
+    padding-bottom: 3vw;
+}
+#left h3{
+    width: 30vw;
+    font-size: 1.8vw;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height: 2vw;
+    padding-bottom: 3vm;
+
+}
+#center h1{
+    font-size: 11vw;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: right;
+    line-height: 8vw;
+}
+#page1 video{
+    position: relative;         /* layering kr dega 1 ke uper 2re ki*/
+    width:100%;
+    border-radius: 20px;
+    margin-top: 4vw;
+}
+#hero1{
+    position: absolute;
+    height: 27vw;
+    width: 50vw;
+    /*border-radius: 50vw;*/
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    background: linear-gradient(#FE380C,#e95938f0);
+    right: 0;               /* Shift element To Right Side */
+    top: 73vh;
+    filter: blur(10px);
+    animation-name: animation1;    /*  iss pr Animation apply krna h toh naming to krni padegi*/
+    animation-duration: 7s;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+
+}
+#hero2{
+    position: absolute;
+    width: 30vw;
+    background-color:#FE380C;
+    height: 25vw;
+    border-radius: 50%;
+    top: 73vh;
+    right: 12vw;
+    filter: blur(20px);
+    animation-name: animation2;
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+}
+#hero3{
+    position: absolute;             /*  elements ko overlap kr dega*/
+    width: 20vw;
+    height: 30vw;
+    border-radius: 50%;
+    top: 73vh;
+    right: 0;
+    filter: blur(20px);
+    background-color: #FE380C;
+    animation-name: animation3;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+@keyframes animation1{
+    from{
+        transform: translate(-2%,7%);
+    }
+    to{
+        transform: translate(2%,-2%);
+    }
+}
+@keyframes animation2{
+    from{
+        transform: translate(-28%,-10%);              /*(-Left, Down)*/
+    }
+    to{
+        transform: translate(5%,-10%);               /*(right,-UP)*/
+    }
+}
+@keyframes animation3{
+    from{
+        transform: translate(10%,-22%);
+    }
+    to{
+        translate: transform(-13%,-33%);
+    }
+}
+
+#page2{
+    min-height: 100vh;
+    width: 100%;
+    background-color: #EFEAE3;
+    padding: 5vw 0;
+    position: relative;
+}
+/*   After That We Apply The Locomootive  Library For Smooth SCrolling
+    by taken COde From the GITHUB LOCOMOTIVE WEB..on Smooth Section Down part...
+     Then set Tittle and icon throught the FAVICON.IO and Set it */
+
+
+    /* How To Move Text Infinte In A Single Line*/
+#MovingText{
+    white-space: nowrap;            /* All The Chidrens Are Come In Single Line. But Div ke Bahar chale jaenge*/
+    overflow-x: auto;            /*But Isse Div Ke Inside aa Jaenge OR usime Scroll ho jaenge*/
+    
+}
+#MovingText::-webkit-scrollbar{     /*Content ke Bottom Ke SCROLL BAR ko access krega*/
+    display: none;                  /* Ye Scroll Bar KO Remove Krega*/
+}
+
+#container{                   /* (.) is Used To Access Classes // (#) is Used To Access ID */
+    display: inline-block;     /* Saare Div One By One single Lined ho jaenge*/
+    animation-name: Move;
+    animation-duration: 9s;
+    animation-timing-function: ease-in-out;      /* Means Animation constant speed se move krega high/low nhi hoga */
+    animation-iteration-count: infinite;
+}
+#MovingText h1{
+    font-size: 9vw;
+    font-weight: lighter;
+    
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: inline-block;   /* Jitne Words/size H Effect sirf Utne pr hi apply hoga */
+    
+}
+#CIRCLE
+{
+    height: 70px;
+    width: 70px;
+    background-color: #FE380C;
+    border-radius: 50px;
+    display: inline-block;      /* Circle Words ke aage aa jaega*/
+    margin: 1vw 3vw;
+}
+@keyframes Move{            /* Make A Animation To Text COTINUOUSLY Moving*/
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform:translateX(-100%);            /*Give These (Move) Animation to Container id */
+    }
+}
+
+/* After that We ADD (gsap cdn)= is a Library which Is use to make Effective Animations 
+    Go to the gsap cdn website and 
+    add in html below Locomotive and then 
+    add scroll trigger below gsap cdn*/
+
+#page2-Bottom{
+    height: 80vh;
+    width: 100%;
+    background-color: #EFEAE3;
+    padding: 3vw;
+    display: flex;      /* Elements Come Under Single Line*/
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+#page2-Bottom h1{
+    font-size: 3.5vw;
+    width: 50%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    left: 20vw;
+    z-index: 9;
+    
+}
+#Bottom-part2{
+    width: 20%;
+   
+}
+#Bottom-part2 img{
+    width: 90%;
+    border-radius: 0.5vw;
+}
+#Bottom-part2 p{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 1vw;        /* image ke bottom se gap ke liye*/
+    font-weight: lighter;
+    font-size: 0.8vw;
+}
+#page2 #smalltxt{
+   position: relative;
+   padding: 3vw 0;
+}
+
+#page2 #circle{
+    height: 25vw;
+    width: 25vw;
+    position: absolute;
+    border-radius: 50%;
+    background:linear-gradient(to top,#FE380C,#fe8d0c);         /* to-top= gradient-color Top to Bottom jaega*/
+    
+    top: 60%;
+    left: 21%;
+    filter: blur(10px);  
+    animation-name: circle;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+
+}
+@keyframes circle {
+    from{
+        transform:translate(10%,-40%) skew(0);      /* 10% aage ki taraf or -40% uper ki taraf move krna*/
+    }
+    to{
+        transform:translate(-10%,10%) skew(-10deg);    /* skew == sponch ki jaesa -> \\ , or -> //  shape dega*/
+    }
+    
+}
+#page3{
+    min-height: 100vh;
+    width: 100%;
+    background-color: #EFEAE3;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 4vw 0;
+}
+.elem{
+    height: 100px;
+    width: 100%;
+    position: relative;
+    
+    border-bottom: 1px solid rgb(155, 153, 153);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 0 2vw;
+}
+.elem h2{
+    font-size: 2vw;
+    position: relative;
+    z-index: 9;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.elem .overlay{
+    height: 100%;
+    width: 100%;
+    background-color: orange;
+    position: absolute;
+    left: 0;
+    top: -100%;
+    transition: all ease 0.3s;
+}
+.elem:hover .overlay{
+    top: 0;
+}
+
+#fixed-image{
+    height: 31vw;
+    width: 25vw;
+    border-radius: 20px;
+    position: fixed;
+    background-color: #fe8d0c;
+    z-index: 99;
+    left: 50%;
+    top: 27%;
+    display: none;    /* fixed-image container ko transparent kr dega*/
+    background-size: cover;   /* Full Image Ko Acces Krega */
+    background-position: center;
+}
+#page4{
+    min-height: 100vh;
+    width: 100%;
+    background-color: #EFEAE3;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
